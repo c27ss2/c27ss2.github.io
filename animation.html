@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#square{
+			height:500px;
+			width: 500px;
+			background-color: orange;
+			border: 10px solid black;
+			animation-name: dance;
+			animation-iteration-count:infinite;
+			animation-duration:5s;
+			position:absolute;
+			
+		}
+
+		#square2{
+			height:250px;
+			width:250px;
+			background-color:red;
+			border:5px solid black;
+			animation-name: dance2;
+			animation-iteration-count: infinite;
+			animation-duration:5s;
+			position:relative;
+			left:17%;
+			top: 100px;
+
+		}
+		@keyframes dance2{
+			0%{
+				width:50px;
+				height:50px;
+				left:0px;
+			}
+
+			50%{
+				width:250px;
+				height:250px;
+				transform:rotate(360deg);
+				border-radius:50%;
+				border: 10px solid black;
+				left:500px;
+				background-color: orange;
+			}
+
+			100%{
+				width:50px;
+				height:50px;
+				left:0px;
+		}
+
+	}
+
+		@keyframes dance{
+			0%{
+				width:100px;
+				height:100px;
+				left:0px;
+				top:0px;
+			}
+
+			50%{
+				width:500px;
+				height:500px;
+				transform:rotate(360deg);
+				border-radius:50%;
+				border: 20px solid black;
+				left:50%;
+				top:100px;
+				background-color: red;
+			}
+
+			100%{
+				top:0px;
+				width:100px;
+				height:100px;
+				left:0px;
+			}
+		}
+	</style>
+<body>
+	<div id="square"></div>
+	<div id="square2"></div>
+</body>
+</html>
