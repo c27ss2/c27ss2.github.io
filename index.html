@@ -4,19 +4,82 @@
 	<style type="text/css">
 		#space{
 			height:800px;
-			width: 1500px;
-			background-color:
-				gray;
+			width: 2000px;
+			
 			background-image:url(https://petapixel.com/assets/uploads/2023/06/webb-jades-image-45000-galaxies-1600px-800x561.jpg);
 			background-size:cover;
+
+			
+		}
+
+		#sun{
+			height:400px;
+			width:400px;
+			position:absolute;
+			left:550px;
+			top:200px;
+			background-image: url(sun2.png);
+			background-size:contain;
+			background-repeat:no-repeat
+		}
+
+		#earth{
+			height:200px;
+			width:200px;
+			position:absolute;
+			left:300px;
+			top:150px;
+			background-image: url(earth.png);
+			background-size:contain;
+			background-repeat:no-repeat;
+		}
+		#mars{
+			height:200px;
+			width:200px;
+			position:absolute;
+			left:1000px;
+			top:300px;
+			background-image: url(mars.png);
+			background-size:contain;
+			background-repeat:no-repeat;
+
+		}
+
+		.text{
+			postition:relative;
+			top:100%;
+			text-align:center;
+			background-color:white;
+
+		font-family:courier;
+		font-size:50px;
+		}
+
+		body{
+			margin:0px;
 		}
 	</style>
+
+
 </head>
 
 <body>
-<a href="projects.html">
+
 	<div id="space"></div>
-<a>
+	<div id="sun"></div>
+<a href="projects.html">	
+	<div id="mars"></div>
+	<div class="text">Projects!</div>
+</a>
+<a href="journal.html">
+	<div id ="earth"></div>
+	<div class="text">Journal!</div>
+</a>
+
+
+	
+	
+
 </body>
 
 </html>

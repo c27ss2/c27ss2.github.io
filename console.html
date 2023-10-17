@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title></title>
+	<style type="text/css">
+		#box{
+			width:200px;
+			height:200px;
+			background-color:red;
+			padding-left:10px;
+			color:white;
+			font-size:50px;
+			border:10px solid green;
+			margin:100px;
+
+		}
+		#box:hover{
+			background-color:orange;
+			padding-left:10px;
+			color:hotpink;
+			border:10px dotted yellow;
+			margin:100px;
+			transition:1s;
+			
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		sajan
+
+	</div>
+
+	<script type="text/javascript">
+		document.addEventListener("mousemove", function(event){
+			console.log(event)
+		})
+
+		document.addEventListener("keypress", function(event){
+			console.log(event)
+		})
+
+		document.addEventListener("click", function(event){
+			console.log(event)
+		})
+	</script>
+		
+</body>
+</html>
