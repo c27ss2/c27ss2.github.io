@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title></title>
+	<style type="text/css">
+		#sajan{
+			width:500px;
+			height:500px;
+			background-color:green;
+		}
+
+</style>
+
+</head>
+<body>
+<div id = "sajan"></div>
+
+<script type="text/javascript">
+	sajan.addEventListener("mousemove", function(event){
+
+		sajan.style.transform = "rotate(" + event.clientX + "deg)";
+	})
+
+	
+</script>
+</body>
+</html>

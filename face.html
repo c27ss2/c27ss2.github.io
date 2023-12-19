@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#face{
+			width:600px;
+			height:600px;
+			background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWuMvZEXTvcFgI7VaViDDMzGGaJiSSidCehA&usqp=CAU);
+			background-size:contain;
+			background-position: center;
+			background-repeat:no-repeat;
+			position:absolute;
+			left:200px;
+		}
+		.feature{
+			width:125px;
+			height:125px;
+			border:1px solid black;
+			display:inline-block;
+			margin:5px;
+			background-position:center;
+			background-size:contain;
+			background-repeat:no-repeat;
+		}
+		#one{
+			background-image:url(eye1.png);
+		}
+
+		#two{
+			background-image:url(nose.png);
+		}
+
+		#three{
+			background-image:url(mouth1.png);
+		}
+
+		#four{
+			background-image:url();
+		}
+
+		#five{
+			background-image:url();
+		}
+
+		#six{
+			background-image:url();
+		}
+
+		#seven{
+			background-image:url();
+		}
+
+		#eight{
+			background-image:url();
+		}
+
+		#nine{
+			background-image:url();
+		}
+
+		#ten{
+			background-image:url();
+		}
+
+		
+
+	</style>
+	
+
+</head>
+<body>
+	<div id="one" class="feature"></div>
+	<div id="two" class="feature"></div>
+	<div id="three" class="feature"></div>
+	<div id="four" class="feature"></div>
+	<div id="five" class="feature"></div>
+	<div id="six" class="feature"></div>
+	<div id="seven" class="feature"></div>
+	<div id="eight" class="feature"></div>
+	<div id="nine" class="feature"></div>
+	<div id="ten" class="feature"></div>
+
+
+	<div id="face"></div> 
+<script type="text/javascript">
+
+var feature;
+	one.addEventListener("click", function(){
+		feature = "eye1.png"})
+		console.log(feature)
+
+	two.addEventListener("click", function(){
+		feature = "nose.png"})
+		console.log(feature)
+	three.addEventListener("click", function(){
+		feature = "mouth1.png"})
+		console.log(feature)
+
+
+
+	face.addEventListener("click",
+
+		function makeDiv (event){
+		var facepart = document.createElement('div');
+		document.body.appendChild(facepart)
+		facepart.classList.add('feature')
+		facepart.style.position = "absolute"
+		facepart.style.left = event.clientX-50 + "px"
+		facepart.style.top = event.clientY-50 + "px"
+		facepart.style.border = "0px"
+		facepart.style.backgroundImage = "url("+ feature    +")"
+	})
+
+</script>
+</body>
+</html>

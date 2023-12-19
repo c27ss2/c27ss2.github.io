@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#balloon1{
+			width:300px;
+			height:600px;
+			background-image:url(balloon1.png);
+			background-size:cover;
+			position:absolute;
+			top:28%;
+			opacity:0;
+		}
+		#balloon2{
+			width:300px;
+			height:600px;
+			background-image:url(balloon1.png);
+			background-size:cover;
+			position:absolute;
+			left:350%;
+			opacity:0;
+		}
+		#hbd{
+			width:600px;
+			height:600px;
+			background-image:url(hbd.png);
+			background-size:cover;
+			position:absolute;
+			right:110%;
+			top:-60%;
+			opacity:0;
+		}
+
+		#table{
+			height:800px;
+			width:800px;
+			background-image:url(table.png);
+			background-size:cover;
+			position:absolute;
+			top:52%;
+			left:-22%;
+			opacity:0;
+		}
+
+		#cake{
+			height:200px;
+			width:200px;
+			background-image:url(cake.png);
+			background-size:cover;
+			position:absolute;
+			top:17%;
+			left:40%;
+			opacity:0;
+
+		}
+	</style>
+
+	
+</head>
+<body>
+<div id="balloon1">
+<div id="balloon2">
+<div id="hbd">
+<div id="table">
+<div id="cake">
+	<script type="text/javascript">
+		var clickCounter = 0;
+
+		document.addEventListener("click", function countClicks(){
+			clickCounter = clickCounter +1;
+			console.log(clickCounter)
+
+
+			if (clickCounter==1){
+				document.body.style.backgroundColor = "green"
+				table.style.opacity="1"
+
+			}
+			if (clickCounter==2){
+				document.body.style.backgroundColor = "blue"
+				balloon1.style.opacity="1"
+				balloon2.style.opacity="1"
+			}
+			if (clickCounter==3){
+				document.body.style.backgroundColor = "red"
+				cake.style.opacity="1"
+			}
+			if(clickCounter==4){
+				document.body.style.backgroundColor = "yellow"
+				hbd.style.opacity="1"
+			}
+
+			if(clickCounter==5){
+				clickCounter = 0
+			}
+
+
+		})
+
+	</script>
+
+</body>
+</html>

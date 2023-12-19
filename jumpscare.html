@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#graveyard{
+			height:900px;
+			width: 1450px;
+			opacity: 1;
+			background-image:url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a31965e5-2811-4f62-96c0-f7fde5f222a5/dfggtlq-a5923794-998a-44d2-87ad-3f536d71977a.jpg/v1/fill/w_1095,h_730,q_70,strp/spooky_graveyard_by_kuzy62_dfggtlq-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvYTMxOTY1ZTUtMjgxMS00ZjYyLTk2YzAtZjdmZGU1ZjIyMmE1XC9kZmdndGxxLWE1OTIzNzk0LTk5OGEtNDRkMi04N2FkLTNmNTM2ZDcxOTc3YS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.Xqeqs-hUobCrkuNnl_vv7X6CiYB9DT5GAtijxuIQ8x8);
+			background-size:cover;
+		}
+		#grave1{
+			height:550px;
+			width:100px;
+			position:absolute;
+			left:280px;
+			top:300px;
+			opacity:0;
+			background-color:red;
+			
+
+		}
+		#monster{
+			height:200px;
+			width:300px;
+			position:absolute;
+/*			left:100;*/
+			background-image:url(monster.png);
+			background-size:cover;
+			opacity:0;
+			animation-duration: 2s;
+			animation-iteration-count: 1;
+
+		}
+
+
+@keyframes comeOut{
+
+	0%{
+		height:200px;
+			width:300px;
+	}
+
+	100%{
+		height:2000px;
+			width:3000px;
+	}
+
+	
+}
+
+#bleh{
+	width:100px;
+	height:100px;
+	position:absolute;
+	left:80%;
+	background-color:blue;
+}
+
+.enter{
+	position:absolute;
+	width:100%;
+	height:800px;
+	background-color:white;
+	top:0%;
+	z-index: 20;
+	transition:3s;
+}
+</style>
+</head>
+<body>
+<div id="enter" class="enter"></div>
+
+	<audio id="sound" src="background.mp3"></audio>
+
+	<div id="bleh"></div>
+	<div id="graveyard">
+			<div id="grave1"></div>
+			<div id="monster"></div>
+
+	</div>
+
+	<audio id="sound2" src="jumpscare2.mp3"></audio>
+
+	<script type="text/javascript">
+
+		function removeClass (){
+			enter.classList.remove("enter")
+		}
+
+		enter.addEventListener("click", function(){
+			sound.play()
+			enter.style.backgroundColor="black";
+			setTimeout(removeClass,3000)
+			
+		})
+
+	grave1.addEventListener("click", function(event){
+		sound2.play()
+		monster.style.opacity = "1"
+		monster.style.animationName = "comeOut"
+		
+
+
+
+		}
+		)
+
+	bleh.addEventListener("click", function(event){
+		monster.style.opacity = "0"
+		monster.style.animationName = ""
+		}
+		)
+
+	grave1.addEventListener("mousemove",
+		function(event){
+			monster.style.transform="rotate(" + event.clientX + "deg)";
+
+			
+		})
+		//  end of event listener
+
+	</script>
+</body>
+</html>
