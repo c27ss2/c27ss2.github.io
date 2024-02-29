@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+	<input id="text"></input>
+	<button id="submit">submit</button>
+	<div id="answer"></div>
+
+	<script type="text/javascript">
+		submit.addEventListener("click", function(){
+			console.log(text.value)
+			if (text.value=="sajan"){
+				answer.innerText="100% fantastic!"
+			}
+			else{
+				answer.innerText="your chances are..." + Math.round(Math.random()*100) + "%"
+			}
+		})
+		</script>
+		
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	
+		#car{
+			width:400px;
+			height:350px;
+			background-image: url(car-right.png);
+			background-color: red;
+			background-repeat: no-repeat;
+			background-size:contain;
+			position:absolute;
+
+		}
+
+		body{
+			margin:0px;
+		}
+
+		#road{
+			width:100%;
+			height:780px;
+			background-image:url(road.png);
+			background-size:cover;
+		}
+
+	</style>
+</head>
+<body>
+<div id="road">
+	<div id="car"></div>
+	</div>
+	<script type="text/javascript">
+		var x=0
+		var y = 0
+
+		document.addEventListener("keydown", 
+			function(event){
+			console.log(event.key)
+
+			if (event.key=="ArrowRight"){
+				x=x+15
+				car.style.left=x+'px';
+				car.style.backgroundImage="url(car-right.png)"
+			}
+
+			if (event.key=="ArrowUp"){
+				y=y-15
+				car.style.top=y+'px';
+				//car.style.backgroundImage="url(car-top.png)"
+				car.style.backgroundPosition="top"
+			}
+
+			if (event.key=="ArrowLeft"){
+				x=x-15
+				car.style.left=x+'px';
+				car.style.backgroundImage="url(car-left.png)"
+				//car.style.backgroundPosition="bottom"
+			}
+
+			if (event.key=="ArrowDown"){
+				//orientation =true;
+				y=y+15
+				car.style.top=y+'px';
+				car.style.backgroundPosition="bottom"
+
+				//car.style.backgroundImage="url(car-down.png)"
+				//car.style.backgroundPosition="right"
+
+					}
+
+			
+			
+
+
+		})
+	</script>
+</body>
+</html>

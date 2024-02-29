@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#car{
+			width:400px;
+			height:200px;
+			background-color:red;
+			background-image: url(car-right.png);
+			background-repeat: no-repeat;
+			background-size:contain;
+			position:absolute;
+
+		}
+
+	</style>
+</head>
+<body>
+	<div id="car"></div>
+	<script type="text/javascript">
+		var x=0
+		var y = 0
+		var orientation;
+
+		document.addEventListener("keydown", 
+			function(event){
+			console.log(event.key)
+
+			if (event.key=="ArrowRight"){
+				x=x+15
+				car.style.left=x+'px';
+				car.style.backgroundImage="url(car-right.png)"
+				if (orientation==true)
+					{car.style.backgroundPosition="bottom"}
+
+				else{
+					car.style.backgroundPosition="top"
+
+				}
+			}
+
+			if (event.key=="ArrowUp"){
+				y=y-15
+				car.style.top=y+'px';
+				car.style.backgroundImage="url(car-top.png)"
+				car.style.backgroundPosition="left"
+			}
+
+			if (event.key=="ArrowLeft"){
+				x=x-15
+				car.style.left=x+'px';
+				car.style.backgroundImage="url(car-left.png)"
+				car.style.backgroundPosition="bottom"
+			}
+
+			if (event.key=="ArrowDown"){
+				orientation =true;
+				y=y+15
+				car.style.top=y+'px';
+				car.style.backgroundPosition="right"
+
+				car.style.backgroundImage="url(car-down.png)"
+				car.style.backgroundPosition="right"
+
+					}
+
+			
+			
+
+
+		})
+	</script>
+</body>
+</html>
