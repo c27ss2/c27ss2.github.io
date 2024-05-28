@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		
+		.boulder{
+/*			background-color:brown;*/
+			width:200px;
+			height:200px;
+			background-size:contain;
+			background-repeat: no-repeat;
+			background-image: url(boulder.png);
+			position:absolute;
+			
+}
+
+.roll{
+	animation-duration: 2s;
+	animation-name:rollLeft;
+}
+			
+			
+
+		@keyframes rollLeft{
+			from {
+			transform:rotate(0deg);
+			left:100%;
+				
+			}
+			to {
+				transform:rotate(-360deg);
+				left:-20%;
+			
+			}
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+
+	<!-- <div id="rock" class="boulder"></div> -->
+
+	<script type="text/javascript">
+
+var a=0
+var b=200
+var c=400
+var d=600
+var lanes = [a,b,c,d]
+
+
+
+		function makeBoulder(){
+			var random=Math.floor(Math.random()*lanes.length)
+console.log(random)
+		var rock = document.createElement('div')
+	document.body.appendChild(rock);
+	 rock.classList.add("boulder")
+	 // rock.classList.add("move")
+	 rock.classList.add("roll")
+	 	rock.style.top=lanes[random] + "px"
+
+	}
+
+
+	setInterval(makeBoulder, 2000)
+
+
+
+
+
+
+	// setInterval(makeInterval, 5000)
+
+
+// var x;
+// var random;
+
+//  function makeInterval (){
+// 	 random = 1000+ Math.round(Math.random()*2000)
+// 	 console.log(random)
+// }
+
+
+
+
+
+
+	// x=1000
+
+	//  function move (){
+	//  	rock.style.left=x+'px';
+	// 		x = x-75;
+	// 	rock.style.opacity="1"
+	// 	rock.style.transition="1s"
+
+	// if (x < -300){
+	// 			rock.style.class.remove("boulder")
+
+	// 		}
+
+
+	// setInterval(move, 200)
+
+
+	// 	} // end of makeboulder function//
+
+
+	// makeBoulder()
+
+
+
+		
+
+		
+
+</script>
+
+</body>
+</html>

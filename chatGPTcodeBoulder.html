@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car and Boulder Collision</title>
+    <style type="text/css">
+        #car {
+            width: 380px;
+            height: 185px;
+            background-image: url(car-right.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+        }
+
+        body {
+            margin: 0px;
+        }
+
+        #road {
+            width: 100%;
+            height: 780px;
+            background-image: url(road.png);
+            background-size: cover;
+            position: fixed;
+        }
+
+        .boulder {
+            width: 200px;
+            height: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url(boulder.png);
+            position: absolute;
+            background-color:red;
+        }
+
+        .roll {
+            animation-duration: 2s;
+            animation-name: rollLeft;
+        }
+
+        @keyframes rollLeft {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="road">
+    <div id="car"></div>
+</div>
+
+<script type="text/javascript">
+    var a = 0;
+    var b = 200;
+    var c = 400;
+    var d = 600;
+    var lanes = [a, b, c, d];
+    var x = 0;
+    var y = 0;
+    var random;
+
+    function makeBoulder() {
+        random = Math.floor(Math.random() * lanes.length);
+        var rock = document.createElement('div');
+        document.body.appendChild(rock);
+        rock.classList.add("boulder", "roll");
+        rock.style.top = lanes[random] + "px";
+        rock.style.left = "110%";
+
+        function moveBoulderLeft() {
+            rock.style.left = "-20%";
+            rock.style.transition = "4s linear";
+        }
+
+        moveBoulderLeft();
+
+        function checkCollision() {
+            var carRect = car.getBoundingClientRect();
+            var boulderRect = rock.getBoundingClientRect();
+
+            if (carRect.left < boulderRect.right &&
+                carRect.right > boulderRect.left &&
+                carRect.top < boulderRect.bottom &&
+                carRect.bottom > boulderRect.top) {
+                car.style.backgroundImage = "url(explosion.png)";
+                alert("GAME OVER! RESTART");
+                clearInterval(collisionInterval);
+            }
+        }
+
+        var collisionInterval = setInterval(checkCollision, 100);
+        setTimeout(() => clearInterval(collisionInterval), 4000);
+    }
+
+    setInterval(makeBoulder, 4000);
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key == "ArrowRight") {
+            x += 30;
+            car.style.left = x + 'px';
+            car.style.backgroundImage = "url(car-right.png)";
+        }
+
+        if (event.key == "ArrowUp") {
+            y -= 200;
+            car.style.top = y + 'px';
+            car.style.backgroundPosition = "top";
+        }
+
+        if (event.key == "ArrowLeft") {
+            x -= 30;
+            car.style.left = x + 'px';
+            car.style.backgroundImage = "url(car-left.png)";
+        }
+
+        if (event.key == "ArrowDown") {
+            y += 200;
+            car.style.top = y + 'px';
+            car.style.backgroundPosition = "bottom";
+        }
+    });
+</script>
+
+</body>
+</html>

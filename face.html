@@ -3,8 +3,8 @@
 <head>
 	<style type="text/css">
 		#face{
-			width:600px;
-			height:600px;
+			width:700px;
+			height:700px;
 			background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWuMvZEXTvcFgI7VaViDDMzGGaJiSSidCehA&usqp=CAU);
 			background-size:contain;
 			background-position: center;
@@ -35,7 +35,7 @@
 		}
 
 		#four{
-			background-image:url();
+			background-image:url(hair.png);
 		}
 
 		#five{
@@ -84,6 +84,12 @@
 	<div id="face"></div> 
 <script type="text/javascript">
 
+	var clickNumber = 0;
+
+	document.addEventListener("click", function(){
+		clickNumber = clickNumber -1;
+	})
+
 var feature;
 	one.addEventListener("click", function(){
 		feature = "eye1.png"})
@@ -95,20 +101,39 @@ var feature;
 	three.addEventListener("click", function(){
 		feature = "mouth1.png"})
 		console.log(feature)
+	four.addEventListener("click", function(){
+		feature = "hair.png"})
+		console.log(feature)
+
 
 
 
 	face.addEventListener("click",
 
+
 		function makeDiv (event){
+			face.style.zIndex=clickNumber;
 		var facepart = document.createElement('div');
 		document.body.appendChild(facepart)
+		facepart.style.zIndex = clickNumber;
 		facepart.classList.add('feature')
 		facepart.style.position = "absolute"
-		facepart.style.left = event.clientX-50 + "px"
-		facepart.style.top = event.clientY-50 + "px"
+		facepart.style.left = event.clientX-60 + "px"
+		facepart.style.top = event.clientY-60 + "px"
 		facepart.style.border = "0px"
 		facepart.style.backgroundImage = "url("+ feature    +")"
+	
+
+	if ( feature == "hair.png"){
+		facepart.style.width="600px";
+	facepart.style.height="600px";
+		facepart.style.left = event.clientX-300 + 'px'
+	facepart.style.top = event.clientY-400 + 'px'
+
+	}
+
+	facepart.addEventListener("click", makeDiv)
+
 	})
 
 </script>

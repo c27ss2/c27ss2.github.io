@@ -5,10 +5,9 @@
 	<style type="text/css">
 	
 		#car{
-			width:400px;
-			height:350px;
+			width:380px;
+			height:185px;
 			background-image: url(car-right.png);
-			background-color: red;
 			background-repeat: no-repeat;
 			background-size:contain;
 			position:absolute;
@@ -47,7 +46,7 @@
 			}
 
 			if (event.key=="ArrowUp"){
-				y=y-15
+				y=y-200
 				car.style.top=y+'px';
 				//car.style.backgroundImage="url(car-top.png)"
 				car.style.backgroundPosition="top"
@@ -62,7 +61,7 @@
 
 			if (event.key=="ArrowDown"){
 				//orientation =true;
-				y=y+15
+				y=y+200
 				car.style.top=y+'px';
 				car.style.backgroundPosition="bottom"
 

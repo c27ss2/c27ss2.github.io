@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackjack Game</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    #game {
+        background-color: #f0f0f0;
+        border: 2px solid #333;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #result {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <div id="game">
+        <h1>Blackjack Game</h1>
+        <div id="result"></div>
+        <div id="player-hand"></div>
+        <div id="dealer-hand"></div>
+        <button id="deal-button">Deal</button>
+        <button id="hit-button" disabled>Hit</button>
+        <button id="stand-button" disabled>Stand</button>
+    </div>
+</div>
+<script>
+    const dealButton = document.getElementById('deal-button');
+    const hitButton = document.getElementById('hit-button');
+    const standButton = document.getElementById('stand-button');
+    const resultDiv = document.getElementById('result');
+    const playerHandDiv = document.getElementById('player-hand');
+    const dealerHandDiv = document.getElementById('dealer-hand');
+
+    let deck = [];
+    let playerHand = [];
+    let dealerHand = [];
+    let playerScore = 0;
+    let dealerScore = 0;
+    let gameOver = false;
+
+    function createDeck() {
+        const suits = ['Hearts', 'Diamonds', 'Cl

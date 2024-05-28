@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title></title>
+
+	<style type="text/css">
+
+		#car{
+			width:380px;
+			height:185px;
+			background-image: url(car-right.png);
+			background-repeat: no-repeat;
+			background-size:contain;
+			position:absolute;
+
+		}
+
+		body{
+			margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+		}
+
+		#road{
+			width:100%;
+			height:780px;
+			background-image:url(road.png);
+			background-size:cover;
+			position:fixed;
+		}
+
+		#stopwatch{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+		
+		.boulder{
+			width:200px;
+			height:200px;
+			background-size:contain;
+			background-repeat: no-repeat;
+			background-image: url(boulder.png);
+			position:absolute;
+			
+}
+
+.roll{
+	animation-duration: 2s;
+	animation-name:rollLeft;
+
+}
+			
+			
+
+		@keyframes rollLeft{
+			from {
+			transform:rotate(0deg);
+				
+			}
+			to {
+			transform:rotate(-360deg);
+
+			
+			}
+		}
+
+	</style>
+</head>
+<body>
+<div id="stopwatch">00:00:00</div>
+<div id="road">
+	<div id="car"></div>
+	</div>
+
+	<script type="text/javascript">
+
+var a=0
+var b=200
+var c=400
+var d=600
+var lanes = [a,b,c,d]
+var x=0
+var y = 0
+var boulderLeft;
+var carLeft;
+var carTop=0;
+var boulderTop;
+var random;
+
+
+
+function makeBoulder(){
+ random=Math.floor(Math.random()*lanes.length)
+		var rock = document.createElement('div')
+	document.body.appendChild(rock);
+	rock.id="rock"
+	 rock.classList.add("boulder")
+	 rock.classList.add("roll")
+	 	rock.style.top=lanes[random] + "px"
+	 	boulderTop = lanes[random]
+	 	rock.style.left = "110%"
+
+
+	 	function moveBoulderLeft(){
+	 		rock.style.left = "-20%"
+	 		rock.style.transition = "1s"
+
+
+			
+		}
+
+		setInterval(moveBoulderLeft, 1000)
+
+	 	
+	 	function leftAlways (){
+	 		boulderLeft = parseInt(rock.offsetLeft)
+	 		carLeft = parseInt(car.offsetLeft)
+	 		carTop = parseInt(car.offsetTop)
+	 		boulderTop = parseInt(rock.offsetTop)
+}
+	setInterval(leftAlways, 10)
+
+
+	 	function removeBoulder(){
+			rock.remove()
+
+	 	}
+	 	setTimeout(removeBoulder, 2000)
+
+	}
+
+
+	 setInterval(makeBoulder, 1000)
+
+		document.addEventListener("keydown", 
+			function dothis (event){
+			if (event.key=="ArrowRight"){
+				x=x+30
+				car.style.left=x+'px';
+				car.style.backgroundImage="url(car-right.png)"
+			console.log(carLeft, boulderLeft)
+			}
+			if (event.key=="ArrowUp"){
+				y=y-200
+				car.style.top=y+'px';
+				car.style.backgroundPosition="top"
+				console.log(carLeft, boulderLeft)
+			}
+			if (event.key=="ArrowLeft"){
+				x=x-30
+				car.style.left=x+'px';
+				car.style.backgroundImage="url(car-left.png)"
+							console.log(boulderTop, y)
+			}
+			if (event.key=="ArrowDown"){
+				y=y+200
+				car.style.top=y+'px';
+				car.style.backgroundPosition="bottom"
+			console.log(carLeft, boulderLeft)
+
+					}
+
+		})
+
+function check (){
+	rock = document.getElementById("rock")
+	console.log(rock.offsetLeft, carLeft)
+
+	if(boulderLeft < carLeft + 380 && 
+			boulderLeft > carLeft && carTop==boulderTop) {
+
+
+				car.style.backgroundImage = "url(explosion.png)"
+				alert("GAME OVER! RESTART")
+
+			}
+}
+
+setInterval(check, 1)
+
+ window.onload = function() {
+        let seconds = 0;
+        let minutes = 0;
+        let hours = 0;
+        let stopwatchElement = document.getElementById('stopwatch');
+
+        function updateStopwatch() {
+            seconds++;
+
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+            }
+            if (minutes >= 60) {
+                minutes = 0;
+                hours++;
+            }
+
+            let displaySeconds = seconds < 10 ? '0' + seconds : seconds;
+            let displayMinutes = minutes < 10 ? '0' + minutes : minutes;
+            let displayHours = hours < 10 ? '0' + hours : hours;
+
+            stopwatchElement.innerHTML = displayHours + ':' + displayMinutes + ':' + displaySeconds;
+        }
+
+        setInterval(updateStopwatch, 1000);
+    }
+
+
+
+
+
+		
+
+</script>
+
+</body>
+</html>

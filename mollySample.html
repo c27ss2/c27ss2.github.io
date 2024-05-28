@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		
+		#whatever{
+			width:100px;
+			height:100px;
+			background-color:blue;
+			position:absolute;
+			top:200px;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="whatever">
+		
+	</div>
+
+	<script type="text/javascript">
+		var ish = 200;
+		document.addEventListener("keypress", function move (){
+			ish = ish-20;
+			whatever.style.top = ish +"px"
+
+			if(ish<0){
+				document.removeEventListener("keypress", move)
+			}
+		})
+	</script>
+
+
+
+</body>
+</html>
